@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/vwoeltjen/traversor#readme",
   "devDependencies": {
+    "css-loader": "^0.28.9",
     "ol": "^4.6.4",
+    "style-loader": "^0.20.1",
     "webpack": "^3.10.0"
   }
 }
