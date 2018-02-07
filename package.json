@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/vwoeltjen/traversor#readme",
   "devDependencies": {
+    "ol": "^4.6.4",
     "webpack": "^3.10.0"
   }
 }

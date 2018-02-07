@@ -6,7 +6,8 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         filename: "traversor.js",
         library: "traversor",
-        libraryTarget: "umd"
+        libraryTarget: "umd",
+        libraryExport: "default"
     },
     module: {
         rules: [
@@ -16,7 +17,4 @@ module.exports = {
         alias: {
         }
     }
-    devtool: "source-map",
-    plugins: [
-    ]
 };
