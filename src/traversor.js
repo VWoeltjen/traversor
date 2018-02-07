@@ -7,9 +7,9 @@ import TileLayer from 'ol/layer/tile';
 import XYZ from 'ol/source/xyz';
 
 export default {
-    run() {
+    run(element) {
         new Map({
-            target: document.body,
+            target: element,
             layers: [
                 new TileLayer({
                     source: new XYZ({

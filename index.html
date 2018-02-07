@@ -5,10 +5,9 @@
     <title></title>
     <script src="dist/traversor.js"></script>
     <script>
-        document.addEventListener(
-            "DOMContentLoaded",
-            traversor.run.bind(traversor)
-        );
+        document.addEventListener("DOMContentLoaded", function () {
+            traversor.run(document.body);
+        });
     </script>
 </head>
 <body>
