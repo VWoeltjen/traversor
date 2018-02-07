@@ -1,0 +1,19 @@
+{
+  "name": "traversor",
+  "version": "0.1.0",
+  "description": "Simple view component for exploration traverses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vwoeltjen/traversor.git"
+  },
+  "author": "NASA Ames Research Center",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/vwoeltjen/traversor/issues"
+  },
+  "homepage": "https://github.com/vwoeltjen/traversor#readme"
+}
