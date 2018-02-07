@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/vwoeltjen/traversor/issues"
   },
-  "homepage": "https://github.com/vwoeltjen/traversor#readme"
+  "homepage": "https://github.com/vwoeltjen/traversor#readme",
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
 }
