@@ -46,13 +46,13 @@ class Traverse {
     heatmap(coordinates, blur, radius) {
         this.map.addLayer(new Heatmap({
             source: new Vector({
-                features: new Collection(coordinates.map((coordinate) => {
+                features: coordinates.map((coordinate) => {
                     let feature = new Feature({
                         geometry: new Point(coordinate)
                     });
                     feature.set('weight', coordinate[2]);
                     return feature;
-                }))
+                })
             }),
             blur: blur,
             radius: radius
@@ -62,11 +62,9 @@ class Traverse {
     line(coordinates) {
         this.map.addLayer(new VectorLayer({
             source: new Vector({
-                features: new Collection([new Feature({
-                    geometry: new LineString(coordinates.map((coordinate) => {
-                        return new Point(coordinate);
-                    }))
-                })])
+                features: [new Feature({
+                    geometry: new LineString(coordinates)
+                })]
             })
         }));
     }
