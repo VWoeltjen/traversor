@@ -78,6 +78,10 @@ class Traverse {
             })
         }));
     }
+
+    coordinate(event) {
+        return this.map.getEventCoordinate(event);
+    }
 }
 
 export default {
