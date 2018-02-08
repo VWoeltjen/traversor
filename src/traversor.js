@@ -10,8 +10,20 @@ import ImageLayer from "ol/layer/image";
 import ImageStatic from "ol/source/imagestatic";
 
 class Traverse {
-    constructor(map) {
-        this.map = map;
+    constructor(element) {
+        this.map = new Map({
+            target: element,
+            layers: [
+            ],
+            view: new View({
+                projection: new Projection({
+                    code: "none",
+                    units: "m"
+                }),
+                center: [0, 0],
+                zoom: 2
+            })
+        });
     }
 
     image(url, left, bottom, right, top) {
@@ -26,19 +38,7 @@ class Traverse {
 
 export default {
     run(element) {
-        return new Traverse(new Map({
-            target: element,
-            layers: [
-            ],
-            view: new View({
-                projection: new Projection({
-                    code: "none",
-                    units: "m"
-                }),
-                center: [0, 0],
-                zoom: 2
-            })
-        }));
+        return new Traverse(element);
     }
 };
 
