@@ -7,12 +7,14 @@ import TileLayer from 'ol/layer/tile';
 import XYZ from 'ol/source/xyz';
 import Projection from 'ol/proj/projection';
 import ImageLayer from 'ol/layer/image';
+import VectorLayer from 'ol/layer/vector';
 import ImageStatic from 'ol/source/imagestatic';
 import Heatmap from 'ol/layer/heatmap';
 import Collection from 'ol/collection';
 import Vector from 'ol/source/vector';
 import Feature from 'ol/feature';
 import Point from 'ol/geom/point';
+import LineString from 'ol/geom/linestring';
 
 class Traverse {
     constructor(element) {
@@ -54,6 +56,18 @@ class Traverse {
             }),
             blur: blur,
             radius: radius
+        }));
+    }
+
+    line(coordinates) {
+        this.map.addLayer(new VectorLayer({
+            source: new Vector({
+                features: new Collection([new Feature({
+                    geometry: new LineString(coordinates.map((coordinate) => {
+                        return new Point(coordinate);
+                    }))
+                })])
+            })
         }));
     }
 }
