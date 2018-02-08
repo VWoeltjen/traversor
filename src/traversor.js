@@ -6,8 +6,13 @@ import View from 'ol/view';
 import TileLayer from 'ol/layer/tile';
 import XYZ from 'ol/source/xyz';
 import Projection from 'ol/proj/projection';
-import ImageLayer from "ol/layer/image";
-import ImageStatic from "ol/source/imagestatic";
+import ImageLayer from 'ol/layer/image';
+import ImageStatic from 'ol/source/imagestatic';
+import Heatmap from 'ol/layer/heatmap';
+import Collection from 'ol/collection';
+import Vector from 'ol/source/vector';
+import Feature from 'ol/feature';
+import Point from 'ol/geom/point';
 
 class Traverse {
     constructor(element) {
@@ -18,7 +23,8 @@ class Traverse {
             view: new View({
                 projection: new Projection({
                     code: "none",
-                    units: "m"
+                    units: "m",
+                    extent: [-1000, -1000, 1000, 1000]
                 }),
                 center: [0, 0],
                 zoom: 2
@@ -32,6 +38,22 @@ class Traverse {
                 imageExtent: [left, bottom, right, top],
                 url: url
             })
+        }));
+    }
+
+    heatmap(coordinates, blur, radius) {
+        this.map.addLayer(new Heatmap({
+            source: new Vector({
+                features: new Collection(coordinates.map((coordinate) => {
+                    let feature = new Feature({
+                        geometry: new Point(coordinate)
+                    });
+                    feature.set('weight', coordinate[2]);
+                    return feature;
+                }))
+            }),
+            blur: blur,
+            radius: radius
         }));
     }
 }
