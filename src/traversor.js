@@ -5,9 +5,12 @@ import Map from 'ol/map';
 import View from 'ol/view';
 import TileLayer from 'ol/layer/tile';
 import XYZ from 'ol/source/xyz';
+import Projection from 'ol/proj/projection';
 
 export default {
     run(element) {
+
+
         new Map({
             target: element,
             layers: [
@@ -18,10 +21,14 @@ export default {
                 })
             ],
             view: new View({
+                projection: new Projection({
+                    code: "none",
+                    units: "m"
+                }),
                 center: [0, 0],
                 zoom: 2
             })
-        });    
-    }  
+        });
+    }
 };
 
