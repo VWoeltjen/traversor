@@ -13,6 +13,7 @@
                 traverse.line([[-10, -1], [5.9, 3], [10, 21]]),
                 traverse.point([15, 5])
             ];
+            traverse.opacity(1, 0.25);
             document.body.addEventListener('click', function (event) {
                 console.log(traverse.coordinate(event));
             });

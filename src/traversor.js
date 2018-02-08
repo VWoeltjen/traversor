@@ -82,6 +82,10 @@ class Traverse {
     coordinate(event) {
         return this.map.getEventCoordinate(event);
     }
+
+    opacity(index, value) {
+        this.map.getLayers().getArray()[index].setOpacity(value);
+    }
 }
 
 export default {
