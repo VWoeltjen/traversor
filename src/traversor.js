@@ -68,6 +68,16 @@ class Traverse {
             })
         }));
     }
+
+    point(coordinate) {
+        this.map.addLayer(new VectorLayer({
+            source: new Vector({
+                features: [new Feature({
+                    geometry: new Point(coordinate)
+                })]
+            })
+        }));
+    }
 }
 
 export default {
