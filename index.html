@@ -6,7 +6,10 @@
     <script src="dist/traversor.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            traversor.run(document.body);
+            var traverse = traversor.run(document.body);
+            var layers = [
+                traverse.image('crater.png', 0, 0, 10, 10)
+            ];
         });
     </script>
 </head>

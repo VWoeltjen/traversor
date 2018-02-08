@@ -6,19 +6,29 @@ import View from 'ol/view';
 import TileLayer from 'ol/layer/tile';
 import XYZ from 'ol/source/xyz';
 import Projection from 'ol/proj/projection';
+import ImageLayer from "ol/layer/image";
+import ImageStatic from "ol/source/imagestatic";
+
+class Traverse {
+    constructor(map) {
+        this.map = map;
+    }
+
+    image(url, left, bottom, right, top) {
+        this.map.addLayer(new ImageLayer({
+            source: new ImageStatic({
+                imageExtent: [left, bottom, right, top],
+                url: url
+            })
+        }));
+    }
+}
 
 export default {
     run(element) {
-
-
-        new Map({
+        return new Traverse(new Map({
             target: element,
             layers: [
-                new TileLayer({
-                    source: new XYZ({
-                        url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-                    })
-                })
             ],
             view: new View({
                 projection: new Projection({
@@ -28,7 +38,7 @@ export default {
                 center: [0, 0],
                 zoom: 2
             })
-        });
+        }));
     }
 };
 
